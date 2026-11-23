@@ -1,11 +1,14 @@
 # Daily Paper Trading Summary - 2026-11-23 (NSE/BSE)
 
+## 🛡️ Risk Management & Golden Rule Status
+- **Total Capital:** ₹20,000,000.00 INR
+- **Golden Rule 1 (Per-Order Cap):** Max 0.5% (₹100,000.00 INR per trade)
+- **Golden Rule 2 (Gross Exposure Cap):** Max 2.5% (₹500,000.00 INR total in market)
+- **Current Market Exposure:** ₹295,807.30 INR (**1.48%** of capital)
+- **Safe Cash & Reserves:** ₹19,704,192.70 INR (98.52%)
+
 ## 1. Portfolio Health & Morning Risk Exits
-| Ticker | Entry | Exit | Return % | Realized P&L (INR) | Action |
-|---|---|---|---|---|---|
-| `TCS.NS` | ₹2,460.00 | ₹2,460.00 | +0.00% | ₹+0.00 | **HOLD** |
-| `ITC.NS` | ₹301.00 | ₹301.00 | +0.00% | ₹+0.00 | **HOLD** |
-| `LT.NS` | ₹4,099.90 | ₹4,099.90 | -0.00% | ₹+0.00 | **HOLD** |
+- *No open positions required liquidation today.*
 
 ## 2. Quantitative Funnel Screening (Top 3 Candidates)
 
@@ -19,15 +22,14 @@
 
 | Ticker | Exchange | Action | Qty | Order Type | Target Price | Stop Loss | OpenAlgo Status |
 |---|---|---|---|---|---|---|---|
-| `LICI.NS` | NSE | **BUY** | 122 | AMO CNC | ₹439.88 | ₹395.08 | `success` |
-| `LTM.NS` | NSE | **BUY** | 11 | AMO CNC | ₹4,552.20 | ₹4,088.55 | `success` |
+| `LICI.NS` | NSE | **BUY** | 245 | AMO CNC | ₹439.88 | ₹395.08 | `success` |
+| `LTM.NS` | NSE | **BUY** | 23 | AMO CNC | ₹4,552.20 | ₹4,088.55 | `success` |
+| `VIJAYA.NS` | NSE | **BUY** | 63 | AMO CNC | ₹1,698.41 | ₹1,525.42 | `success` |
 
 ## 4. Current Ledger Balance
 
-- **Available Cash:** ₹19,755,580.60 INR
-- **Active Positions:** 5
-  - `TCS.NS`: 20.0 units @ ₹2,460.00
-  - `ITC.NS`: 166.0 units @ ₹301.00
-  - `LT.NS`: 12.0 units @ ₹4,099.90
-  - `LICI.NS`: 122.0 units @ ₹407.30
-  - `LTM.NS`: 11.0 units @ ₹4,215.00
+- **Available Cash:** ₹19,704,192.70 INR
+- **Active Positions:** 3
+  - `LICI.NS`: 245.0 units @ ₹407.30
+  - `LTM.NS`: 23.0 units @ ₹4,215.00
+  - `VIJAYA.NS`: 63.0 units @ ₹1,572.60

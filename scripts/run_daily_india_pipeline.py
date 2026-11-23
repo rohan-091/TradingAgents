@@ -37,6 +37,7 @@ def generate_reports(
     top3: list[CandidateScore],
     new_buys: list[dict[str, Any]],
     portfolio_state: dict[str, Any],
+    golden_rule_metrics: dict[str, Any],
     output_dir: Path,
 ) -> tuple[Path, Path]:
     """Generate Markdown and HTML daily summary reports."""
@@ -44,9 +45,22 @@ def generate_reports(
     md_file = output_dir / f"daily_summary_{date_str}.md"
     html_file = output_dir / f"daily_summary_{date_str}.html"
 
+    total_cap = golden_rule_metrics.get("total_capital", 20000000.0)
+    cur_exp = golden_rule_metrics.get("current_exposure", 0.0)
+    exp_pct = (cur_exp / total_cap * 100.0) if total_cap > 0 else 0.0
+    max_exp = golden_rule_metrics.get("max_exposure_inr", total_cap * 0.025)
+    max_ord = golden_rule_metrics.get("max_per_order_inr", total_cap * 0.005)
+
     # Build Markdown Content
     lines = [
         f"# Daily Paper Trading Summary - {date_str} (NSE/BSE)",
+        "",
+        "## 🛡️ Risk Management & Golden Rule Status",
+        f"- **Total Capital:** ₹{total_cap:,.2f} INR",
+        f"- **Golden Rule 1 (Per-Order Cap):** Max 0.5% (₹{max_ord:,.2f} INR per trade)",
+        f"- **Golden Rule 2 (Gross Exposure Cap):** Max 2.5% (₹{max_exp:,.2f} INR total in market)",
+        f"- **Current Market Exposure:** ₹{cur_exp:,.2f} INR (**{exp_pct:.2f}%** of capital)",
+        f"- **Safe Cash & Reserves:** ₹{portfolio_state.get('cash', 0.0):,.2f} INR ({(portfolio_state.get('cash', 0.0)/total_cap)*100:.2f}%)",
         "",
         "## 1. Portfolio Health & Morning Risk Exits",
     ]
@@ -154,7 +168,8 @@ def run_pipeline(
     with open(watchlist_path, "r", encoding="utf-8") as f:
         config = json.load(f)
 
-    allocation_per_trade = float(config.get("allocation_per_trade_inr", 50000.0))
+    max_order_pct = float(config.get("max_order_capital_pct", 0.5))
+    max_exposure_pct = float(config.get("max_market_exposure_pct", 2.5))
     max_positions = int(config.get("max_open_positions", 5))
     take_profit_pct = float(config.get("take_profit_pct", 8.0))
     stop_loss_pct = float(config.get("stop_loss_pct", 3.0))
@@ -204,12 +219,30 @@ def run_pipeline(
     for idx, c in enumerate(top3, 1):
         logger.info(f"Top Candidate #{idx}: {c.ticker} ({c.company_name}) - Score: {c.total_score}")
 
-    # Step 3: Multi-Agent Trade Decision & Order Execution
-    logger.info("Step 3: Determining New Trade Allocations...")
+    # Step 3: Multi-Agent Trade Decision & Order Execution with Golden Rule
+    logger.info("Step 3: Determining New Trade Allocations with Golden Rule (0.5% per order, 2.5% max exposure)...")
     portfolio = exit_manager.load_portfolio()
     cash = float(portfolio.get("cash", 0.0))
     active_positions = portfolio.get("positions", [])
     held_tickers = {p["ticker"].upper() for p in active_positions}
+
+    # Golden Rule Calculations
+    current_exposure = sum(float(p.get("quantity", 0.0)) * float(p.get("average_price", 0.0)) for p in active_positions)
+    total_capital = cash + current_exposure
+    if total_capital <= 0:
+        total_capital = 20000000.0  # fallback to ₹2 Crore
+
+    max_per_order_inr = total_capital * (max_order_pct / 100.0)
+    max_exposure_inr = total_capital * (max_exposure_pct / 100.0)
+    remaining_exposure_room = max(0.0, max_exposure_inr - current_exposure)
+
+    logger.info(
+        f"GOLDEN RULE: Total Capital=Rs. {total_capital:,.2f} | "
+        f"Max Order (0.5%)=Rs. {max_per_order_inr:,.2f} | "
+        f"Max Gross Exposure (2.5%)=Rs. {max_exposure_inr:,.2f} | "
+        f"Current Exposure=Rs. {current_exposure:,.2f} ({(current_exposure/total_capital)*100:.2f}%) | "
+        f"Remaining Room=Rs. {remaining_exposure_room:,.2f}"
+    )
 
     new_buys: list[dict[str, Any]] = []
 
@@ -224,19 +257,37 @@ def run_pipeline(
             logger.info(f"Maximum open positions ({max_positions}) reached. No new trades.")
             break
 
-        # Check cash availability
-        if cash < allocation_per_trade * 0.8:
-            logger.info(f"Insufficient cash (Rs. {cash:,.2f}) for new allocation. Skipping {candidate.ticker}.")
+        # Check Golden Rule: Total Market Exposure Cap (2.5%)
+        if remaining_exposure_room <= 0:
+            logger.warning(
+                f"GOLDEN RULE CAP: Market exposure limit of 2.5% (Rs. {max_exposure_inr:,.2f}) reached. "
+                f"No new orders permitted until existing positions exit."
+            )
             break
 
+        # Sizing: Capped by 0.5% per order and remaining room under 2.5% cap
+        order_budget = min(max_per_order_inr, remaining_exposure_room)
+        if candidate.current_price <= 0:
+            continue
+
+        qty = int(order_budget / candidate.current_price)
+        if qty <= 0:
+            logger.info(
+                f"Skipping {candidate.ticker}: Budget Rs. {order_budget:,.2f} insufficient for share price Rs. {candidate.current_price:,.2f}"
+            )
+            continue
+
         # High-conviction threshold: Score >= 70
-        if candidate.total_score >= 70.0 and candidate.current_price > 0:
-            qty = max(1, int(allocation_per_trade / candidate.current_price))
+        if candidate.total_score >= 70.0:
             sym, exch = parse_symbol_and_exchange(candidate.ticker)
             target_price = round(candidate.current_price * (1.0 + (take_profit_pct / 100.0)), 2)
             stop_loss = round(candidate.current_price * (1.0 - (stop_loss_pct / 100.0)), 2)
+            trade_cost = qty * candidate.current_price
 
-            logger.info(f"Dispatching AMO BUY order for {candidate.ticker}: qty={qty} @ Rs. {candidate.current_price:,.2f}")
+            logger.info(
+                f"Dispatching AMO BUY order for {candidate.ticker}: qty={qty} @ Rs. {candidate.current_price:,.2f} "
+                f"(Cost: Rs. {trade_cost:,.2f} <= Max Rs. {max_per_order_inr:,.2f})"
+            )
             order_res = openalgo_client.place_order(
                 symbol=sym,
                 exchange=exch,
@@ -247,9 +298,11 @@ def run_pipeline(
                 strategy="TradingAgents-Daily",
             )
 
-            # Update local ledger
-            trade_cost = qty * candidate.current_price
+            # Update local ledger and exposure accounting
             cash -= trade_cost
+            current_exposure += trade_cost
+            remaining_exposure_room = max(0.0, max_exposure_inr - current_exposure)
+
             new_pos = {
                 "ticker": candidate.ticker,
                 "quantity": float(qty),
@@ -267,6 +320,8 @@ def run_pipeline(
                 "target_price": target_price,
                 "stop_loss": stop_loss,
                 "order_res": order_res,
+                "allocation_inr": round(trade_cost, 2),
+                "capital_pct": round((trade_cost / total_capital) * 100.0, 3),
             })
 
     # Save final portfolio state
@@ -275,12 +330,20 @@ def run_pipeline(
     exit_manager.save_portfolio(portfolio)
 
     # Step 4: Generate Reports
+    golden_rule_metrics = {
+        "total_capital": total_capital,
+        "max_per_order_inr": max_per_order_inr,
+        "max_exposure_inr": max_exposure_inr,
+        "current_exposure": current_exposure,
+        "remaining_exposure_room": remaining_exposure_room,
+    }
     md_file, html_file = generate_reports(
         date_str=date_str,
         exits=exits,
         top3=top3,
         new_buys=new_buys,
         portfolio_state=portfolio,
+        golden_rule_metrics=golden_rule_metrics,
         output_dir=Path(results_dir),
     )
     logger.info(f"Saved daily markdown report: {md_file}")

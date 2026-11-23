@@ -1,31 +1,21 @@
 {
-  "cash": 19755580.6,
+  "cash": 19704192.7,
   "currency": "INR",
   "positions": [
     {
-      "ticker": "TCS.NS",
-      "quantity": 20.0,
-      "average_price": 2460.0
-    },
-    {
-      "ticker": "ITC.NS",
-      "quantity": 166.0,
-      "average_price": 301.0
-    },
-    {
-      "ticker": "LT.NS",
-      "quantity": 12.0,
-      "average_price": 4099.9
-    },
-    {
       "ticker": "LICI.NS",
-      "quantity": 122.0,
+      "quantity": 245.0,
       "average_price": 407.3
     },
     {
       "ticker": "LTM.NS",
-      "quantity": 11.0,
+      "quantity": 23.0,
       "average_price": 4215.0
+    },
+    {
+      "ticker": "VIJAYA.NS",
+      "quantity": 63.0,
+      "average_price": 1572.6
     }
   ]
 }

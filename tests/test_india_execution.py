@@ -91,3 +91,31 @@ def test_position_exit_manager_tp_and_sl():
         assert len(updated["positions"]) == 1
         assert updated["positions"][0]["ticker"] == "FLAT.NS"
         assert updated["cash"] == 100000.0 + 1100.0 + 950.0
+
+
+def test_golden_rule_exposure_and_order_limits():
+    """Verify Golden Rule: max 0.5% per order and max 2.5% total market exposure."""
+    total_capital = 20000000.0  # ₹2 Crore
+    max_order_pct = 0.5         # 0.5% max per order -> ₹1,00,000
+    max_exposure_pct = 2.5      # 2.5% max gross exposure -> ₹5,00,000
+
+    max_per_order = total_capital * (max_order_pct / 100.0)
+    max_exposure = total_capital * (max_exposure_pct / 100.0)
+
+    assert max_per_order == 100000.0
+    assert max_exposure == 500000.0
+
+    # Simulate 5 positions of ₹1,00,000 each (total ₹5,00,000 = 2.5%)
+    positions = [{"ticker": f"STOCK{i}.NS", "quantity": 100.0, "average_price": 1000.0} for i in range(5)]
+    current_exposure = sum(p["quantity"] * p["average_price"] for p in positions)
+    assert current_exposure == 500000.0
+
+    remaining_room = max(0.0, max_exposure - current_exposure)
+    assert remaining_room == 0.0
+
+    # When remaining room is 0, any new candidate order must be rejected/skipped
+    candidate_price = 500.0
+    order_budget = min(max_per_order, remaining_room)
+    qty = int(order_budget / candidate_price)
+    assert qty == 0  # Blocked from placing new order
+
