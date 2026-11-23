@@ -46,6 +46,61 @@ class OpenAlgoClient:
             logger.warning(f"Failed to ping OpenAlgo: {e}")
             return False
 
+    def get_funds(self) -> dict[str, Any]:
+        """Fetch live funds/cash balances from OpenAlgo (paper/analyze or live)."""
+        if not self.api_key:
+            return {"availablecash": 20000000.0, "status": "simulated"}
+        url = f"{self.base_url}/api/v1/funds/"
+        try:
+            resp = requests.post(url, json={"apikey": self.api_key}, timeout=self.timeout)
+            if resp.status_code == 200:
+                data = resp.json()
+                funds_data = data.get("data", {})
+                return {
+                    "availablecash": float(funds_data.get("availablecash", 0.0)),
+                    "totalpnl": float(funds_data.get("totalpnl", 0.0)),
+                    "utiliseddebits": float(funds_data.get("utiliseddebits", 0.0)),
+                    "mode": data.get("mode", "unknown"),
+                    "status": "success",
+                }
+            return {"availablecash": 20000000.0, "status": "error", "message": resp.text}
+        except Exception as e:
+            logger.error(f"Error fetching funds from OpenAlgo: {e}")
+            return {"availablecash": 20000000.0, "status": "error", "message": str(e)}
+
+    def get_positions(self) -> list[dict[str, Any]]:
+        """Fetch current open positions directly from OpenAlgo's positionbook."""
+        if not self.api_key:
+            return []
+        url = f"{self.base_url}/api/v1/positionbook/"
+        try:
+            resp = requests.post(url, json={"apikey": self.api_key}, timeout=self.timeout)
+            if resp.status_code == 200:
+                data = resp.json()
+                positions = data.get("data", [])
+                # Only return positions with non-zero quantity
+                active = []
+                for p in positions:
+                    qty = float(p.get("quantity", 0))
+                    if qty > 0:
+                        sym = p.get("symbol", "")
+                        exch = p.get("exchange", "NSE")
+                        suffix = ".BO" if exch == "BSE" else ".NS"
+                        active.append({
+                            "ticker": f"{sym}{suffix}" if not sym.endswith((".NS", ".BO")) else sym,
+                            "symbol": sym,
+                            "exchange": exch,
+                            "quantity": qty,
+                            "average_price": float(p.get("average_price", 0.0)),
+                            "ltp": float(p.get("ltp", 0.0)),
+                            "pnl": float(p.get("pnl", 0.0)),
+                        })
+                return active
+            return []
+        except Exception as e:
+            logger.error(f"Error fetching positions from OpenAlgo: {e}")
+            return []
+
     def place_order(
         self,
         symbol: str,

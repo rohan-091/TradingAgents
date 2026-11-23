@@ -163,14 +163,36 @@ def run_pipeline(
     openalgo_online = openalgo_client.ping()
     logger.info(f"OpenAlgo connection on port 5000: {'ONLINE (zerodha)' if openalgo_online else 'OFFLINE (simulating)'}")
 
-    # Step 1: Evaluate & Exit Existing Positions
-    logger.info("Step 1: Running Portfolio Health & Exit Manager (+8% TP, -3% SL)...")
+    # Synchronize portfolio ledger directly from OpenAlgo if online
     exit_manager = PositionExitManager(
         portfolio_path=portfolio_path,
         take_profit_pct=take_profit_pct,
         stop_loss_pct=stop_loss_pct,
         openalgo_client=openalgo_client,
     )
+
+    if openalgo_online:
+        live_funds = openalgo_client.get_funds()
+        live_positions = openalgo_client.get_positions()
+        logger.info(
+            f"Synced live OpenAlgo ledger: Cash=Rs. {live_funds['availablecash']:,.2f} | Open Positions={len(live_positions)}"
+        )
+        synced_portfolio = {
+            "cash": live_funds["availablecash"],
+            "currency": "INR",
+            "positions": [
+                {
+                    "ticker": p["ticker"],
+                    "quantity": p["quantity"],
+                    "average_price": p["average_price"],
+                }
+                for p in live_positions
+            ],
+        }
+        exit_manager.save_portfolio(synced_portfolio)
+
+    # Step 1: Evaluate & Exit Existing Positions
+    logger.info("Step 1: Running Portfolio Health & Exit Manager (+8% TP, -3% SL)...")
     exits = exit_manager.evaluate_and_exit_positions()
     if exits:
         for e in exits:

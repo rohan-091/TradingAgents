@@ -1,7 +1,9 @@
 # Daily Paper Trading Summary - 2026-11-23 (NSE/BSE)
 
 ## 1. Portfolio Health & Morning Risk Exits
-- *No open positions required liquidation today.*
+| Ticker | Entry | Exit | Return % | Realized P&L (INR) | Action |
+|---|---|---|---|---|---|
+| `TCS.NS` | ₹2,460.00 | ₹2,460.00 | +0.00% | ₹+0.00 | **HOLD** |
 
 ## 2. Quantitative Funnel Screening (Top 3 Candidates)
 
@@ -16,13 +18,12 @@
 | Ticker | Exchange | Action | Qty | Order Type | Target Price | Stop Loss | OpenAlgo Status |
 |---|---|---|---|---|---|---|---|
 | `ITC.NS` | NSE | **BUY** | 166 | AMO CNC | ₹325.08 | ₹291.97 | `success` |
-| `TCS.NS` | NSE | **BUY** | 20 | AMO CNC | ₹2,656.80 | ₹2,386.20 | `success` |
 | `LT.NS` | NSE | **BUY** | 12 | AMO CNC | ₹4,427.89 | ₹3,976.90 | `success` |
 
 ## 4. Current Ledger Balance
 
-- **Available Cash:** ₹351,635.20 INR
+- **Available Cash:** ₹19,851,636.20 INR
 - **Active Positions:** 3
-  - `ITC.NS`: 166.0 units @ ₹301.00
   - `TCS.NS`: 20.0 units @ ₹2,460.00
+  - `ITC.NS`: 166.0 units @ ₹301.00
   - `LT.NS`: 12.0 units @ ₹4,099.90
