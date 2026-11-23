@@ -1,0 +1,18 @@
+### Comprehensive Fundamental Profiling
+- **Market Capitalization**: $17.66 Billion USD.
+- **Valuation Multiples**:
+  - **Trailing P/E Ratio**: **8.52x** (Exceptional value multiple for a software/platform ecosystem generating 20%+ growth).
+  - **Price-to-Earnings-to-Growth (PEG)**: **< 0.5x** (Deep growth-adjusted undervaluation).
+  - **Dividend Yield**: **6.17%** (Quarterly distributions supported by robust operational cash flows).
+- **Financial Performance & Scale (SEC / IFRS Data)**:
+  - **Total Annual Revenue**: **4.03 Trillion KZT** (~$8.40 Billion USD).
+  - **Gross Profit**: **1.91 Trillion KZT** (~47.4% gross profit margin).
+  - **Net Income**: **1.07 Trillion KZT** (~$2.25 Billion USD), translating to an extraordinary **26.6% Net Profit Margin**.
+  - **Diluted EPS (TTM)**: **$10.91 USD** per ADR.
+- **Profitability & Capital Efficiency**:
+  - **Return on Equity (ROE)**: **44.78%** (Demonstrating exceptional capital allocation efficiency and high-return reinvestment).
+  - **Return on Assets (ROA)**: **13.54%**.
+- **Balance Sheet Strength & Solvency**:
+  - **Debt to Equity**: **22.17% (0.22x)** (Negligible long-term debt; clean, unleveraged capital structure).
+  - **Current Ratio**: **6.51x** (Immense liquidity cushion providing defensive resilience against macro shocks).
+  - **Consumer Deposit Engine**: Kaspi Deposit serves as a sticky, low-cost retail funding engine that fuels consumer and merchant lending with minimal external funding dependence.

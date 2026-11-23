@@ -1,0 +1,11 @@
+### Sentiment Overview & Order Flow Dynamics
+- **Market Sentiment Bias**: Moderately Bullish / Institutional Accumulation.
+- **Insider Transaction Analysis**:
+  - Systematic Form 4 filings confirm standard executive 10b5-1 pre-scheduled trading plans (Hock Tan, Kirsten Spears, Mark Brazeal).
+  - Crucially, no distressed or un-hedged insider dumping has occurred. Major long-term stakes held by CEO Hock Tan and Co-Founder Henry Samueli remain firmly intact.
+  - Director purchase noted at $325.13 – $339.38 levels by Harry L. You, signaling valuation support.
+- **Institutional & Whale Activity**:
+  - Institutional ownership exceeds 82%, with dominant positions held by Vanguard, BlackRock, and Capital Research.
+  - Options market skew exhibits put-call ratio compression from 1.15 down to 0.78, indicating rising smart-money call accumulation for Q4 2026 / FY2027 contract expirations.
+- **Retail & Social Community Tracking**:
+  - Sentiment across StockTwits and Reddit (r/stocks, r/wallstreetbets) reflects temporary weariness over cyclical semiconductor headwinds (non-AI segments), but overwhelming bullish consensus regarding Broadcom's custom AI silicon (ASIC) dominance.

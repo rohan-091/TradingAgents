@@ -1,0 +1,16 @@
+### Fundamental Profile & Balance Sheet Analysis
+- **Market Capitalization**: $3.89 Billion USD.
+- **Valuation Metrics**:
+  - **Trailing P/E**: N/A (High-growth, pre-commercialization stage).
+  - **Forward P/E**: -56.6x.
+  - **Price-to-Sales (TTM)**: Elevated on nominal trailing revenue, typical for foundational deep-tech platform developers.
+- **Financial Scale & Trajectory**:
+  - **TTM Revenue**: **$13.35 Million USD** (demonstrating sequential quarterly acceleration driven by Novera sales and government contracts).
+  - **Gross Profit**: **$4.62 Million USD** (34.6% Gross Margin).
+  - **EBITDA**: **-$87.23 Million USD**.
+  - **Net Income (TTM)**: **-$238.67 Million USD** (largely driven by heavy non-cash R&D stock compensation and quantum fab depreciation).
+  - **Operating Cash Flow**: **-$60.72 Million USD** annualized burn.
+- **Liquidity Fortress & Solvency**:
+  - **Total Cash & Liquid Investments**: **$393.71 Million USD** (supplemented by liquid equivalents up to ~$540M in reported quarterly assets).
+  - **Total Debt**: **$7.70 Million USD** (negligible gearing; virtually net debt-free).
+  - **Cash Runway**: At current operating cash burn rates (~$60M/year), Rigetti possesses **over 5 to 6 years of operational cash runway**, insulated from near-term bankruptcy or forced dilutive capital raises.

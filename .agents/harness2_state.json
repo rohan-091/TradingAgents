@@ -1,0 +1,10 @@
+{
+  "lastHarnessRun": "2026-10-24T05:06:38.035094+00:00",
+  "status": "HEALTHY",
+  "activeGates": 6,
+  "humanRole": "HUMAN_ON_THE_LOOP",
+  "architecture": "Harness\u00b2 Recursive Agent Harnessing (arXiv:2610.14224)",
+  "version": "2.0.0",
+  "framework": "TradingAgents",
+  "tokenMinimization": "code-review-graph + graphify MCP"
+}

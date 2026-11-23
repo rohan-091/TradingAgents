@@ -1,0 +1,1 @@
+Conservative Perspective: Cap position size at 3.0% portfolio weight. Respect the ongoing cyclical weakness in Chinese automation by placing a strict stop-loss at 795.00 SEK.

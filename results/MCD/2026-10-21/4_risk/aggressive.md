@@ -1,0 +1,1 @@
+Aggressive Perspective: Allocate up to 6.0% portfolio weight. McDonald's has printed a definitive bottom at $230.88 with a bullish MACD expansion. The 3.13% yield and low 0.45 beta allow aggressive position sizing with minimal volatility penalty.

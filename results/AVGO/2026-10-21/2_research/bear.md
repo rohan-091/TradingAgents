@@ -1,0 +1,5 @@
+### Bearish Counter-Thesis: Headwinds & Risk Factors
+1. **Non-AI Segment Cyclicality**: Enterprise broadband, storage adapters, and wireless smartphone components (Apple RF modules) face persistent inventory normalization and sluggish consumer upgrade cycles.
+2. **Customer Concentration Risk**: A significant percentage of custom ASIC revenue is tied to two key hyperscalers (Alphabet & Meta), exposing Broadcom to capex budget adjustments or in-house silicon design insourcing.
+3. **Customer Pushback on VMware Pricing**: Certain enterprise and public-sector clients have voiced discontent over license tier restructuring, creating opportunities for Nutanix and open-source KVM migrations.
+4. **Integration Debt Burden**: Servicing acquisition debt in a higher-for-longer interest rate macro regime consumes substantial cash flow that could otherwise fund share buybacks.

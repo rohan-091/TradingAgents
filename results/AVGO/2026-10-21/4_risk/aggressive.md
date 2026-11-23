@@ -1,0 +1,1 @@
+Aggressive Perspective: Allocate up to 8% portfolio weight. Technicals show an oversold divergence on RSI (38.7) right on major support ($328). Leverage call options ($360 strike, 90-day expiry) to capture anticipated earnings multiple expansion.

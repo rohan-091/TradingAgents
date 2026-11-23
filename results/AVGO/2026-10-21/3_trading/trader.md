@@ -1,0 +1,12 @@
+### Trade Execution Parameters
+- **Asset**: Broadcom Inc. (AVGO - NASDAQ)
+- **Trade Direction**: Long / Buy
+- **Execution Strategy**: Three-Tranche Dollar Cost Averaging (DCA):
+  - **Tranche 1 (40%)**: Immediate market execution at current price ($334.37).
+  - **Tranche 2 (35%)**: Limit buy on retest of $328.80 (Bollinger lower band).
+  - **Tranche 3 (25%)**: Momentum breakout buy upon daily close above $345.00 (10-day EMA confirmation).
+- **Target Exits**:
+  - TP 1: $362.00 (Take 25% profit at 50-day SMA).
+  - TP 2: $410.00 (Take 35% profit at intermediate resistance).
+  - TP 3: $495.00 – $525.00 (Trail remaining 40% position into 52-week highs).
+- **Hard Stop-Loss**: $314.50 (Daily close stop-loss, risking ~5.9% against a +37.6% base reward; Risk/Reward Ratio > 1:6.3).

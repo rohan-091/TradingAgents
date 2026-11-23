@@ -1,0 +1,5 @@
+### Bearish Counter-Thesis: Headwinds & Valuation Risks
+1. **Elevated Valuation Multiple**: At ~88x trailing earnings and 14.6x sales, the stock prices in flawless execution. Any delay in 550 kV commercial trials could trigger short-term multiple de-rating.
+2. **Raw Material Price Volatility**: Reliance on specialized insulating paper, high-grade resin, copper conductors, and aluminum hardware exposes gross margins to metal and petrochemical price spikes.
+3. **Working Capital Intensity**: Supplying state utilities and large EPCs often involves extended milestone receivables, requiring careful cash-flow monitoring (TTM operating cash flow ₹8.8 Cr vs net profit ₹37.3 Cr).
+4. **BSE SME Heritage / Liquidity Profile**: While transitioning to mainstream trading, trading volume (~82k daily average) is moderate, demanding disciplined order staging.

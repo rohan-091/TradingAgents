@@ -1,0 +1,21 @@
+# News & Concall Analyst: KP Green Engineering Ltd
+
+- **Concall (May 2026)**: Transcript
+- **Concall (May 2026)**: REC
+- **Concall (Nov 2025)**: Transcript
+- **Concall (May 2025)**: Transcript
+- **Concall (May 2025)**: REC
+- **Concall (Dec 2024)**: Transcript
+- **Concall (Dec 2024)**: REC
+- **Announcement ()**: All
+- **Announcement ()**: Compliances-Certificate under Reg. 74 (5) of SEBI (DP) Regulations, 201812 Oct- KP Green Engineering Limited submitted Certificate under Regulation 74(5) of the SEBI (DP) Regulations, 2018, for the quarter ended September 30, 2026.
+- **Announcement ()**: Intimation Regarding Receipt Of Confirmed New Orders Aggregating To Rs. 272 Crores12 Oct- KP Green Engineering secured ₹272.32 crore confirmed orders on October 12, 2026 across multiple segments.
+- **Announcement ()**: Announcement under Regulation 30 (LODR)-Change in Management1 Oct- Dr. Alok Das resigns as Group CEO effective October 1, 2026, citing personal reasons.
+- **Announcement ()**: Shareholder Meeting / Postal Ballot-Scrutinizer''s Report1 Oct
+- **Announcement ()**: Announcement under Regulation 30 (LODR)-Investor Presentation30 Sep- KP Green Engineering Limited has submitted the exchange Investor Presentation for the Investor Meet - KP 3.0 Unleashed, scheduled to be held today i.e. Wednesday, …
+- **Announcement ()**: PPT
+- **Announcement ()**: PPT
+- **Announcement ()**: PPT
+- **Announcement ()**: PPT
+- **Announcement ()**: PPT
+- **Announcement ()**: PPT

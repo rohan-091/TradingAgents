@@ -1,0 +1,1 @@
+Aggressive Perspective: Allocate up to 6.0% portfolio weight. The sub-30 RSI (27.7) represents a rare capitulation signal in a mega-cap European quality compounder. Mean-reversion back to the 200-day SMA (897 SEK) is highly probable within 4 to 8 weeks.

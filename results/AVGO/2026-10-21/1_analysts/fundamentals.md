@@ -1,0 +1,23 @@
+### Financial Health, Valuation Multiples & Growth Profiling
+- **Market Capitalization**: $1,596.16 Billion USD (~$1.60 Trillion).
+- **TTM Revenue**: $89.10 Billion USD (+85.5% YoY expansion factoring organic AI growth and full VMware consolidation).
+- **Quarterly Revenue Trajectory (SEC EDGAR Verified)**:
+  - Q4 2024: $13.07B
+  - Q2 2025: $15.00B
+  - Q4 2025: $15.95B
+  - Q2 2026: $22.19B
+  - Q3 2026: $29.59B (Record quarterly print, surging Operating Income to $15.96B).
+- **Profitability & Margins**:
+  - **Gross Profit (TTM)**: $67.29 Billion (75.52% Gross Margin).
+  - **Operating Margin**: 54.31% (Best-in-class operating leverage).
+  - **Net Profit Margin**: 42.94% (Net Income $38.26B).
+  - **Free Cash Flow (FCF)**: $30.60 Billion (34.34% FCF Conversion Rate).
+- **Balance Sheet & Solvency**:
+  - Total Debt-to-Equity: 59.60% (0.60x) — dramatic deleveraging achieved ahead of management schedule following the VMware debt assumption.
+  - Current Ratio: 2.50x (Superb liquidity buffer).
+  - Return on Equity (ROE): 44.25%; Return on Assets (ROA): 15.37%.
+- **Valuation Metrics**:
+  - **Trailing P/E**: 42.70x
+  - **Forward P/E**: 17.24x (Significantly discounted relative to semiconductor peers trading at 28-35x forward earnings).
+  - **PEG Ratio**: 0.33 (Exceptional growth-adjusted valuation; PEG < 1.0 represents deep fundamental undervaluation).
+  - **Dividend Yield**: 0.78% ($2.60 annualized payout with consecutive 14-year dividend hike history).

@@ -1,0 +1,11 @@
+### Trade Execution Parameters
+- **Instrument**: Applied Materials, Inc. (NASDAQ: AMAT)
+- **Position Stance**: Long / Buy
+- **Execution Blueprint**:
+  - **Tranche 1 (50%)**: Immediate market execution at current price ($375.00 – $380.00).
+  - **Tranche 2 (50%)**: Staged limit buy order at $360.00 – $366.00 (retesting lower Bollinger Band envelope) or momentum breakout on daily close above $420.00 (10-day EMA reclaim).
+- **Profit Taking Targets**:
+  - **TP 1**: $441.00 (Take 30% profit at the 200-day SMA retest; +16.9% gain).
+  - **TP 2**: $470.00 (Take 40% profit at the 50-day / 20-day SMA cluster; +24.6% gain).
+  - **TP 3**: $550.00 – $628.00 (Trail remaining 30% runner toward consensus fair value; +45.8% to +66.5% gain).
+- **Stop-Loss / Invalidation**: $345.00 daily close (Structural invalidation below key support shelf; Risk: ~8.5% vs Upside: +45.8% to +66.5%; Risk/Reward Ratio > 1:5.4).

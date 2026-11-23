@@ -1,0 +1,1 @@
+Neutral Perspective: Optimal target weight of 3.0% of portfolio equity. Excellent balance of capital efficiency (22.5% ROE), clean balance sheet (D/E 0.20x), and structural transmission megatrend.

@@ -1,0 +1,17 @@
+### Financial Health, Profitability & Valuation
+- **Market Capitalization**: $174.45 Billion USD.
+- **Valuation Multiples**:
+  - **Trailing P/E**: **20.03x**
+  - **Forward P/E**: **17.92x** (Substantial discount compared to historical 5-year and 10-year average P/E multiples of 24.5x – 26.0x).
+  - **Dividend Yield**: **3.13%** (Well above the S&P 500 average yield of ~1.3% and backed by a 55-60% FCF payout ratio).
+  - **Beta**: **0.45** (Exceptional capital preservation profile; moves less than half as violently as the broader market).
+- **Scale & Operational Metrics (TTM)**:
+  - **Revenue (TTM)**: **$27.70 Billion USD**
+  - **Gross Profit**: **$15.90 Billion USD** (57.38% Gross Margin)
+  - **Operating Income / Margin**: **$12.88 Billion USD / 46.49% Operating Margin** (World-class operating leverage derived from high-margin franchise royalties and property lease fees).
+  - **Net Income / Margin**: **$8.79 Billion USD / 31.72% Net Profit Margin**.
+  - **Diluted EPS (TTM)**: **$12.31 USD**; Forward EPS: **$13.75 USD** (+11.7% earnings growth).
+  - **Free Cash Flow (FCF)**: **$6.26 Billion USD** (Providing consistent funding for dividends and debt management).
+- **Capital Structure & Cash Conversion**:
+  - Current Ratio of **1.08x**; negative book value reflects decades of aggressive share repurchases at higher returns on invested capital rather than balance sheet distress.
+  - Investment-grade credit rating (BBB+/Baa1) ensures low-cost debt refinancing even in elevated interest rate environments.

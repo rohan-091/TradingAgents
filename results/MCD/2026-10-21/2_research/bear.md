@@ -1,0 +1,5 @@
+### Bearish Counter-Thesis: Headwinds & Challenges
+1. **Low-End Consumer Fatigue**: Sustained cumulative inflation over the past three years has stretched household budgets for consumers earning under $45,000/year, prompting more home meal preparation.
+2. **Franchisee Margin Compression on Promotions**: Aggressive $5 value promotions boost foot traffic but compress franchisee store-level unit margins, potentially causing resistance if extended indefinitely.
+3. **International Slower Growth**: Geopolitical tensions in the Middle East and selective consumer softness in China and Western Europe create temporary headwinds for the International Developmental Licensed (IDL) segment.
+4. **Long-Term Dietary Shifts / GLP-1**: Broader adoption of appetite-suppressing GLP-1 medications may modestly reduce high-frequency snacking and large-portion dining habits over the next decade.

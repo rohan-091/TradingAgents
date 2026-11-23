@@ -1,0 +1,5 @@
+### Bearish Counter-Thesis: Risk Factors & Constraints
+1. **Frontier Market & Geopolitical Discount**: Kazakhstan is geographically situated between Russia and China. Geopolitical unrest, secondary sanction anxieties, or regional currency (Kazakh Tenge - KZT) depreciation against the USD can weigh on ADR returns regardless of operational performance.
+2. **Domestic Market Penetration Ceiling**: With ~70% of Kazakhstan's adult population already active daily users, domestic top-line growth must eventually decelerate toward GDP-plus rates unless cross-border expansion proves highly lucrative.
+3. **Regulatory / Political Risk**: Central bank regulations regarding interchange fees, interest rate caps on micro-loans, or antitrust scrutiny over digital payment monopolies represent ongoing regulatory overhangs.
+4. **FX Conversion Risk**: Operating earnings are generated in KZT while ADR dividends and share prices are quoted in USD, exposing investors to currency translation volatility.

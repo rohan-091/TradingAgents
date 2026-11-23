@@ -1,0 +1,26 @@
+### Comprehensive Financial Profiling & Valuation
+- **Market Capitalization**: $299.38 Billion USD (~$300 Billion).
+- **Valuation Multiples**:
+  - **Trailing P/E Ratio**: **32.55x**
+  - **Forward P/E Ratio**: **20.40x** (Substantial discount to AI semiconductor peers trading at 30x–45x forward earnings).
+  - **Price-to-Earnings-to-Growth (PEG)**: **0.87** (Deep growth-adjusted undervaluation; PEG < 1.0 indicates high-margin safety buffer).
+  - **Price-to-Sales (TTM)**: **9.71x**
+  - **Price-to-Book**: **11.68x**
+  - **Dividend Yield**: **0.56%** ($2.12 annualized payout, backed by a sub-20% payout ratio and consistent 15+ year dividend growth).
+- **Scale & Operational Performance (TTM - USD)**:
+  - **Total Revenue (TTM)**: **$30.84 Billion USD** (Robust performance despite China export license friction).
+  - **Gross Profit**: **$15.23 Billion USD** (**49.40% Gross Margin**).
+  - **EBITDA**: **$10.15 Billion USD** (**32.93% EBITDA Margin**).
+  - **Net Income**: **$9.27 Billion USD** (**30.05% Net Profit Margin**).
+  - **Diluted EPS (TTM)**: **$11.59**; **Forward EPS**: **$18.49** (+59.5% projected EPS expansion as advanced nodes ramp).
+- **Profitability & Capital Efficiency**:
+  - **Return on Equity (ROE)**: **41.07%** (World-class capital allocation and operational discipline).
+  - **Return on Assets (ROA)**: **15.48%**
+  - **Operating Cash Flow (TTM)**: **$8.40 Billion USD**
+  - **Free Cash Flow (FCF)**: **$3.08 Billion USD**
+- **Balance Sheet Fortress & Solvency**:
+  - **Cash & Liquid Investments**: **$9.23 Billion USD**
+  - **Total Debt**: **$7.35 Billion USD**
+  - **Net Cash Position**: **+$1.88 Billion USD** (Zero solvency risk; net cash balance sheet provides immense resilience).
+  - **Debt-to-Equity**: **28.67% (0.29x)**
+  - **Current Ratio**: **2.42x** (Exceptional working capital buffer).

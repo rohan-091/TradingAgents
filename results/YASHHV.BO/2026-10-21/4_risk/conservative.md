@@ -1,0 +1,1 @@
+Conservative Perspective: Restrict exposure to 2.0% - 2.5% portfolio equity to account for SME liquidity characteristics and trailing valuation multiples (88x P/E). Enforce stop at 980.00 INR.

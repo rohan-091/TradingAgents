@@ -1,0 +1,1 @@
+Aggressive Perspective: Allocate up to 6.0% portfolio weight. The 6.17% dividend yield provides immediate cash flow while an 8.5x P/E offers substantial multiple-expansion leverage as US retail and institutional investors gain familiarity with the NASDAQ ticker.

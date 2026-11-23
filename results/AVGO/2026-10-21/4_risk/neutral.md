@@ -1,0 +1,1 @@
+Neutral Perspective: Benchmark standard weight at 5.0% portfolio equity. Broadcom's $30.6B free cash flow and investment-grade balance sheet provide downside cushioning. Scaling in across three tranches neutralizes entry timing risk.

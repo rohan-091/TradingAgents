@@ -1,0 +1,1 @@
+Conservative Perspective: Cap position size strictly at 1.0% - 1.5% due to pre-commercialization status and negative operational cash flows. Enforce hard stop at $10.00.

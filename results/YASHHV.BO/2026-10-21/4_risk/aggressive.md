@@ -1,0 +1,1 @@
+Aggressive Perspective: Allocate up to 4.5% portfolio weight. The 46% revenue growth, 55% profit acceleration, and domestic grid monopoly status justify an aggressive growth allocation.

@@ -1,0 +1,1 @@
+Neutral Perspective: Target a 5.0% core portfolio weight. AMAT's net cash balance sheet (+$1.88B net cash), 41.07% ROE, 30.05% net profit margin, and 0.87 PEG ratio make it an elite cornerstone holding for the AI hardware infrastructure decade.

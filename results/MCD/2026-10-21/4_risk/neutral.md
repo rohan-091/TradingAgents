@@ -1,0 +1,1 @@
+Neutral Perspective: Standard target weight of 4.0% portfolio equity. The franchise business model minimizes operating leverage downside, making MCD an optimal core holding.

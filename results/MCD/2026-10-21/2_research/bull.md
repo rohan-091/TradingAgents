@@ -1,0 +1,5 @@
+### Bullish Investment Thesis: The Ultimate Defensive Value Cash Machine
+1. **Franchise / Real Estate Royalty Model**: Approximately 95% of restaurants are franchised. McDonald's is primarily a commercial real estate landlord and royalty collector, shielded from commodity volatility and minimum-wage inflation.
+2. **Cyclical Trough Valuation**: Trading at 17.9x forward earnings vs. its 10-year median of ~25x. Historically, buying McDonald's during headline-driven growth slowdowns has delivered double-digit annualized forward returns.
+3. **Scale Economics in Value Wars**: No competitor (Wendy's, Burger King, Jack in the Box) possesses the supply chain scale or purchasing power to match McDonald's unit-level margins on promotional value bundles.
+4. **Dividends & Capital Return**: A safe 3.13% dividend yield that grows annually provides an unbeatable total-return floor for long-term compounders.

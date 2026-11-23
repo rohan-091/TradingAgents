@@ -1,0 +1,21 @@
+### Comprehensive Financial Profiling
+- **Market Capitalization**: 1.55 Trillion SEK (~$148 Billion USD).
+- **Valuation Multiples**:
+  - **Trailing P/E Ratio**: **33.09x**
+  - **Forward P/E Ratio**: **32.56x**
+  - **Price-to-Earnings-to-Growth (PEG)**: **1.23** (Balanced growth-adjusted valuation).
+  - **Dividend Yield**: **1.30%** (Backed by a sustainable 50-60% net profit payout ratio with consistent dividend progression).
+- **Scale & Operational Performance (TTM - USD)**:
+  - **Total Revenue (TTM)**: **$36.37 Billion USD**
+  - **Gross Profit**: **$14.63 Billion USD** (40.21% Gross Margin)
+  - **EBITDA**: **$7.30 Billion USD**
+  - **Net Income**: **$5.00 Billion USD** (13.77% Net Profit Margin)
+  - **Diluted EPS (TTM)**: **25.93 SEK**; Forward EPS: **26.35 SEK**
+- **Profitability & Capital Efficiency**:
+  - **Return on Equity (ROE)**: **31.13%** (Elite capital efficiency reflecting ABB Way decentralized operational model).
+  - **Operational EBITA Margin**: **18.67%** (Consistently achieving the top end of management's 16%–19% target corridor).
+  - **Free Cash Flow (FCF)**: **$1.94 Billion USD**
+- **Balance Sheet & Solvency**:
+  - **Debt to Equity**: **49.62% (0.50x)**
+  - **Current Ratio**: **1.43x**
+  - Pristine investment-grade balance sheet (Standard & Poor's A / Moody's A2), providing ample flexibility for bolt-on acquisitions and share buybacks.

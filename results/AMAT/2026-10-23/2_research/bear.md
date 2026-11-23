@@ -1,0 +1,5 @@
+### Bearish Counter-Thesis: Headwinds & Cyclical Vulnerabilities
+1. **China Revenue Contraction & Domestic Substitution**: Historical China revenue (~40-45% of total) has contracted towards the high-20% range due to U.S. export controls and Beijing's domestic substitution mandate (Naura Technology, Piotech, ACM Research).
+2. **Mature Node (ICAPS) Spending Normalization**: Slower global demand in automotive, industrial, and consumer IoT silicon has led to capex deferrals in trailing-edge fab tools.
+3. **Geopolitical & Export Policy Risk**: Uncertainty regarding future updates to U.S. Department of Commerce export controls or tariffs could further restrict tool shipments or spare parts servicing.
+4. **High R&D Reinvestment Requirements**: Maintaining tool leadership across deposition, etch, metrology, and packaging requires annual R&D commitments exceeding $3 Billion, capping near-term margin expansion if overall WFE volumes stagnate.

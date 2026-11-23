@@ -1,0 +1,20 @@
+### Comprehensive Financial Profiling
+- **Market Capitalization**: ₹3,435.44 Crore (34.35 Billion INR).
+- **Valuation Multiples**:
+  - **Trailing P/E Ratio**: **88.76x** (reflects hyper-growth scarcity premium in specialized grid components).
+  - **Forward P/E Ratio**: **49.12x** (based on projected forward EPS of ₹23.40 vs trailing EPS of ₹12.95).
+  - **Price-to-Sales (TTM)**: **14.61x**.
+  - **Price-to-Book**: **17.84x** (Book Value: ₹64.44 per share).
+- **Financial Scale & Growth Rates (TTM)**:
+  - **Total Revenue (TTM)**: **₹235.16 Crore** (₹2,351.61M), registering **+45.9% YoY Revenue Growth**.
+  - **Gross Profit**: **₹109.08 Crore** (Robust 46.39% Gross Margin).
+  - **EBITDA**: **₹55.81 Crore** (23.73% EBITDA Margin).
+  - **Net Income (TTM)**: **₹37.32 Crore** (15.87% Net Profit Margin, with quarterly earnings surging **+54.7%**).
+- **Profitability & Capital Efficiency**:
+  - **Return on Equity (ROE)**: **22.53%**
+  - **Return on Assets (ROA)**: **13.44%**
+  - High ROCE profile (>25%) typical of proprietary engineering components with high technical qualification barriers.
+- **Balance Sheet & Solvency**:
+  - **Total Debt**: **₹37.55 Crore** vs **Total Cash**: **₹20.07 Crore**.
+  - **Debt to Equity**: **20.41% (0.20x)** (pristine capital structure with negligible net leverage).
+  - **Current Ratio**: **1.96x** (healthy liquidity buffer covering short-term operational commitments).

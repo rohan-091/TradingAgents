@@ -1,0 +1,11 @@
+### Trade Execution Parameters
+- **Instrument**: ABB Ltd (Nasdaq Stockholm: ABB.ST)
+- **Position Stance**: Long / Buy
+- **Execution Blueprint**:
+  - **Tranche 1 (50%)**: Immediate market execution at current price (850.00 – 858.00 SEK).
+  - **Tranche 2 (50%)**: Limit buy staged on potential wick to 838.00 SEK or on momentum reclaim of 875.00 SEK.
+- **Profit Taking Targets**:
+  - **TP 1**: 897.00 SEK (Take 30% profit at 200-day SMA).
+  - **TP 2**: 950.00 SEK (Take 40% profit at 50-day SMA / middle Bollinger band).
+  - **TP 3**: 1,050.00 – 1,100.00 SEK (Trail remaining 30% position into 52-week peak).
+- **Stop-Loss / Invalidation**: 795.00 SEK daily close (Structural invalidation below key support shelf; Risk: ~6.8% vs Upside: +23.0% to +34.7%; Risk/Reward Ratio > 1:3.4).

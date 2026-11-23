@@ -1,0 +1,1 @@
+Aggressive Perspective: Allocate up to 6.5% portfolio equity. An RSI reading of 5.13 is a statistical anomaly in a mega-cap tech titan ($300B market cap). A violent short-covering snapback towards the 200-day SMA ($441.31) is highly probable within 3 to 6 weeks.

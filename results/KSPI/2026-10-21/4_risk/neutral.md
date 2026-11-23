@@ -1,0 +1,1 @@
+Neutral Perspective: Benchmark standard emerging/fintech allocation at 3.5% portfolio weight. Kaspi's 6.5x current ratio and 0.22x debt-to-equity make it exceptionally resilient against financial contagion.

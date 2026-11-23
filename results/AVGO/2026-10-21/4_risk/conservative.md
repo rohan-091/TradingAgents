@@ -1,0 +1,1 @@
+Conservative Perspective: Cap initial allocation at 3.5% portfolio weight. While forward P/E of 17.2x is highly compelling, respect the broader macroeconomic volatility. Require a strict stop-loss at $314.50 to protect capital against tech-sector drawdown.

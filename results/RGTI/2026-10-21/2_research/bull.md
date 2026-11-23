@@ -1,0 +1,5 @@
+### Bullish Investment Thesis: The Superconducting Quantum Hardware Leader
+1. **Modular Chiplet Scalability Breakthrough**: Monolithic quantum processors suffer exponential yield degradation as qubit counts increase. Rigetti’s proprietary chiplet architecture (seen in the 108-qubit Cepheus) allows tiling small, high-yield QPUs together, paving the clearest engineering path to 1,000+ logical qubits.
+2. **Massive Federal & Sovereign Backing**: The $100M U.S. Commerce award and international sales (India C-DAC) position Rigetti as an indispensable Western asset for sovereign quantum resilience against geopolitical rivals.
+3. **Multi-Year Cash Moat**: With ~$393M+ in cash and only $7.7M in debt, Rigetti has the financial stamina to survive any "quantum winter" and continue aggressive fab development at Fab-1 (Fremont, CA).
+4. **Extreme Asymmetric Valuation Disconnect**: Down -73.8% from its 52-week peak ($44.52), trading at $11.66 with an oversold RSI of 28.60, the risk/reward is heavily skewed toward exponential upside (Target Mean $28.53, +144%).

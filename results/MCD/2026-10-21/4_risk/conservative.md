@@ -1,0 +1,1 @@
+Conservative Perspective: Maintain a 3.5% portfolio weight. Utilize MCD as an anchor defensive equity allocation. Reinvest dividends to compound share accumulation while consumer sentiment normalizes.

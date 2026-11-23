@@ -1,0 +1,5 @@
+### Bearish Counter-Thesis: Deep-Tech Hurdles & Dilution Risks
+1. **Prolonged Commercialization Timeline**: Practical fault-tolerant quantum computing (FTQC) with broad commercial quantum advantage remains 3 to 7 years away. Trailing commercial revenue ($13.35M) is negligible relative to the $3.89B market cap.
+2. **Fierce Competition Across Modalities**: Rigetti faces well-capitalized superconducting rivals (IBM, Google Quantum AI) as well as alternative architectures (Neutral Atoms like QuEra, Trapped Ions like IonQ, and Photonic quantum systems like PsiQuantum).
+3. **Execution & Fidelity Pressure**: While 99.5% two-qubit gate fidelity is commendable, fault tolerance requires sustained fidelities >99.9% at scale alongside low error-correction overhead.
+4. **Historical Share Dilution**: Like many SPAC-originated deep-tech companies, previous equity compensation and at-the-market (ATM) programs have expanded share counts over multi-year periods.

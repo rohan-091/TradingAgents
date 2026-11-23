@@ -1,0 +1,11 @@
+### Trade Execution Parameters
+- **Instrument**: Rigetti Computing, Inc. (NASDAQ: RGTI)
+- **Position Stance**: Speculative Long / Buy
+- **Staging Plan**:
+  - **Tranche 1 (50%)**: Immediate market execution at $11.50 – $11.75.
+  - **Tranche 2 (50%)**: Limit order at $11.15 (near 52-week low) or breakout add on hourly close above $12.80.
+- **Profit Taking Targets**:
+  - **TP 1**: $15.50 (Take 40% profit at 50-day SMA).
+  - **TP 2**: $18.00 (Take 30% profit at 200-day SMA retest).
+  - **TP 3**: $28.00 (Trail remaining 30% position toward Wall Street consensus target).
+- **Stop-Loss / Invalidation**: Strict stop on a daily close below $10.00 (-14.2% risk on full position, yielding >1:3.8 Risk/Reward to TP2/TP3).

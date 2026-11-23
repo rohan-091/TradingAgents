@@ -1,0 +1,11 @@
+### Trade Execution Parameters
+- **Ticker**: McDonald's Corporation (NYSE: MCD)
+- **Position Stance**: Long / Buy
+- **Execution Blueprint**:
+  - **Tranche 1 (60%)**: Immediate entry at current market price ($245.00 – $247.00).
+  - **Tranche 2 (40%)**: Limit buy staged on pullback to $238.50 – $241.00 (10-day EMA test).
+- **Target Exits**:
+  - **TP 1**: $265.00 (Take 30% profit; intermediate resistance).
+  - **TP 2**: $292.00 (Take 40% profit at consensus target).
+  - **TP 3**: $325.00 – $335.00 (Trail remaining 30% position toward 52-week highs).
+- **Hard Stop-Loss**: $226.50 on a daily closing basis (below the 52-week low support at $229.20; Capital Risk: ~8.1% vs Upside: +18.5% to +35.9%; Risk/Reward Ratio > 1:2.3).

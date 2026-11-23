@@ -1,0 +1,1 @@
+Neutral Perspective: Standard target weight of 4.0% portfolio equity. ABB's 31.1% ROE, 18.7% operating margin, and Investor AB backing make it a core Nordic industrial holding.

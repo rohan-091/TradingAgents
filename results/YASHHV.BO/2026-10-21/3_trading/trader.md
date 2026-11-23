@@ -1,0 +1,11 @@
+### Trade Execution Parameters
+- **Instrument**: Yash Highvoltage Limited (BSE: YASHHV.BO / Scrip: 544310)
+- **Position Stance**: Long / Accumulate
+- **Staging Plan**:
+  - **Tranche 1 (50%)**: Immediate accumulation in the 1,130.00 – 1,155.00 INR band.
+  - **Tranche 2 (50%)**: Limit buy staged on dips to 1,060.00 – 1,080.00 INR (near 50-day SMA support) or on a daily breakout above 1,215.00 INR.
+- **Profit Taking Targets**:
+  - **TP 1**: 1,264.00 INR (Take 30% profit at previous all-time high).
+  - **TP 2**: 1,450.00 INR (Take 40% profit at 12-month fundamental target).
+  - **TP 3**: 1,750.00 INR (Trail remaining 30% position toward 18-month bull target).
+- **Stop-Loss / Invalidation**: Strict stop on a daily close below 980.00 INR (-14.7% risk on full allocation; Risk/Reward > 1:3.5).

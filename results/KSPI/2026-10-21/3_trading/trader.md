@@ -1,0 +1,11 @@
+### Trade Execution Parameters
+- **Instrument**: Joint Stock Company Kaspi.kz - ADR (NASDAQ: KSPI)
+- **Position Direction**: Long / Buy
+- **Execution Blueprint**:
+  - **Initial Entry (50%)**: Market execution between $92.50 – $93.50 USD.
+  - **Secondary Entry (50%)**: Limit order staged at $91.20 (Bollinger lower band support retest) or on pre-earnings momentum breakout over $94.50.
+- **Profit Taking Targets**:
+  - **TP 1**: $97.80 (Take 25% profit at 50-day SMA).
+  - **TP 2**: $109.50 (Take 40% profit at 52-week high resistance).
+  - **TP 3**: $125.00 – $135.00 (Let remaining 35% run for multi-year compounder thesis).
+- **Stop-Loss / Risk Limit**: $82.50 daily close stop-loss (protecting against broader emerging market selloff; maximum capital risk ~11.2% vs >45% upside; Risk/Reward Ratio > 1:4.0).

@@ -1,0 +1,1 @@
+Aggressive Perspective: Allocate up to 3.5% portfolio capital. The sub-29 RSI and $393M net cash fortress create a textbook capitulation setup with 2x to 3x multi-month return potential.

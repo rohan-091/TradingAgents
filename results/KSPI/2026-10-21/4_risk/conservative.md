@@ -1,0 +1,1 @@
+Conservative Perspective: Cap allocation at 2.5% - 3.0% portfolio weight. Strictly enforce the $82.50 stop-loss and monitor KZT/USD currency fluctuations. Reinvest quarterly dividends to compound yield.

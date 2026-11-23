@@ -1,0 +1,1 @@
+Conservative Perspective: Restrict initial allocation to 3.5% portfolio weight. While the valuation is compelling (20.4x forward P/E), respect ongoing geopolitical and mature-node fab capex friction by enforcing a strict stop-loss at $345.00.
