@@ -97,8 +97,8 @@ def stage1_vectorized_technical_screen(
     logger.info("Stage 1: Executing vectorized technical calculations across universe...")
     t0 = time.time()
 
-    closes = df["Close"]
-    volumes = df["Volume"]
+    closes = df["Close"].ffill().dropna(how="all")
+    volumes = df["Volume"].ffill().dropna(how="all")
 
     # Filter out columns with insufficient data
     valid_cols = [c for c in closes.columns if closes[c].dropna().shape[0] >= 20]

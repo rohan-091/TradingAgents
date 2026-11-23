@@ -40,8 +40,11 @@ class OpenAlgoClient:
             resp = requests.post(url, json={"apikey": self.api_key}, timeout=self.timeout)
             if resp.status_code == 200:
                 data = resp.json()
-                return data.get("status") == "success"
-            return False
+                if data.get("status") == "success":
+                    return True
+            # Fallback to funds endpoint check
+            funds = self.get_funds()
+            return funds.get("status") == "success"
         except Exception as e:
             logger.warning(f"Failed to ping OpenAlgo: {e}")
             return False
