@@ -48,8 +48,10 @@ def generate_reports(
     total_cap = golden_rule_metrics.get("total_capital", 20000000.0)
     cur_exp = golden_rule_metrics.get("current_exposure", 0.0)
     exp_pct = (cur_exp / total_cap * 100.0) if total_cap > 0 else 0.0
-    max_exp = golden_rule_metrics.get("max_exposure_inr", total_cap * 0.025)
-    max_ord = golden_rule_metrics.get("max_per_order_inr", total_cap * 0.005)
+    max_order_pct = golden_rule_metrics.get("max_order_pct", 0.05)
+    max_exposure_pct = golden_rule_metrics.get("max_exposure_pct", 0.25)
+    max_exp = golden_rule_metrics.get("max_exposure_inr", total_cap * (max_exposure_pct / 100.0))
+    max_ord = golden_rule_metrics.get("max_per_order_inr", total_cap * (max_order_pct / 100.0))
 
     # Build Markdown Content
     lines = [
@@ -57,8 +59,8 @@ def generate_reports(
         "",
         "## 🛡️ Risk Management & Golden Rule Status",
         f"- **Total Capital:** ₹{total_cap:,.2f} INR",
-        f"- **Golden Rule 1 (Per-Order Cap):** Max 0.5% (₹{max_ord:,.2f} INR per trade)",
-        f"- **Golden Rule 2 (Gross Exposure Cap):** Max 2.5% (₹{max_exp:,.2f} INR total in market)",
+        f"- **Golden Rule 1 (Per-Order Cap):** Max {max_order_pct}% (₹{max_ord:,.2f} INR per trade)",
+        f"- **Golden Rule 2 (Gross Exposure Cap):** Max {max_exposure_pct}% (₹{max_exp:,.2f} INR total in market)",
         f"- **Current Market Exposure:** ₹{cur_exp:,.2f} INR (**{exp_pct:.2f}%** of capital)",
         f"- **Safe Cash & Reserves:** ₹{portfolio_state.get('cash', 0.0):,.2f} INR ({(portfolio_state.get('cash', 0.0)/total_cap)*100:.2f}%)",
         "",
@@ -168,8 +170,8 @@ def run_pipeline(
     with open(watchlist_path, "r", encoding="utf-8") as f:
         config = json.load(f)
 
-    max_order_pct = float(config.get("max_order_capital_pct", 0.5))
-    max_exposure_pct = float(config.get("max_market_exposure_pct", 2.5))
+    max_order_pct = float(config.get("max_order_capital_pct", 0.05))
+    max_exposure_pct = float(config.get("max_market_exposure_pct", 0.25))
     max_positions = int(config.get("max_open_positions", 5))
     take_profit_pct = float(config.get("take_profit_pct", 8.0))
     stop_loss_pct = float(config.get("stop_loss_pct", 3.0))
@@ -220,7 +222,7 @@ def run_pipeline(
         logger.info(f"Top Candidate #{idx}: {c.ticker} ({c.company_name}) - Score: {c.total_score}")
 
     # Step 3: Multi-Agent Trade Decision & Order Execution with Golden Rule
-    logger.info("Step 3: Determining New Trade Allocations with Golden Rule (0.5% per order, 2.5% max exposure)...")
+    logger.info(f"Step 3: Determining New Trade Allocations with Golden Rule ({max_order_pct}% per order, {max_exposure_pct}% max exposure)...")
     portfolio = exit_manager.load_portfolio()
     cash = float(portfolio.get("cash", 0.0))
     active_positions = portfolio.get("positions", [])
@@ -238,8 +240,8 @@ def run_pipeline(
 
     logger.info(
         f"GOLDEN RULE: Total Capital=Rs. {total_capital:,.2f} | "
-        f"Max Order (0.5%)=Rs. {max_per_order_inr:,.2f} | "
-        f"Max Gross Exposure (2.5%)=Rs. {max_exposure_inr:,.2f} | "
+        f"Max Order ({max_order_pct}%)=Rs. {max_per_order_inr:,.2f} | "
+        f"Max Gross Exposure ({max_exposure_pct}%)=Rs. {max_exposure_inr:,.2f} | "
         f"Current Exposure=Rs. {current_exposure:,.2f} ({(current_exposure/total_capital)*100:.2f}%) | "
         f"Remaining Room=Rs. {remaining_exposure_room:,.2f}"
     )
@@ -257,15 +259,15 @@ def run_pipeline(
             logger.info(f"Maximum open positions ({max_positions}) reached. No new trades.")
             break
 
-        # Check Golden Rule: Total Market Exposure Cap (2.5%)
+        # Check Golden Rule: Total Market Exposure Cap
         if remaining_exposure_room <= 0:
             logger.warning(
-                f"GOLDEN RULE CAP: Market exposure limit of 2.5% (Rs. {max_exposure_inr:,.2f}) reached. "
+                f"GOLDEN RULE CAP: Market exposure limit of {max_exposure_pct}% (Rs. {max_exposure_inr:,.2f}) reached. "
                 f"No new orders permitted until existing positions exit."
             )
             break
 
-        # Sizing: Capped by 0.5% per order and remaining room under 2.5% cap
+        # Sizing: Capped by per-order cap and remaining room under exposure cap
         order_budget = min(max_per_order_inr, remaining_exposure_room)
         if candidate.current_price <= 0:
             continue
@@ -332,6 +334,8 @@ def run_pipeline(
     # Step 4: Generate Reports
     golden_rule_metrics = {
         "total_capital": total_capital,
+        "max_order_pct": max_order_pct,
+        "max_exposure_pct": max_exposure_pct,
         "max_per_order_inr": max_per_order_inr,
         "max_exposure_inr": max_exposure_inr,
         "current_exposure": current_exposure,
