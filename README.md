@@ -13,6 +13,12 @@
   <a href="https://github.com/TauricResearch" target="_blank"><img alt="TradingAgents #1 Repository of the Day" src="https://trendshift.io/api/badge/repositories/16192" width="250" height="55"/></a>
 </div>
 <br>
+
+> ### 🇮🇳 Indian Equities & OpenAlgo Paper Trading Variant
+> This repository fork (`feat/custom-agents`) includes a production-grade automated paper trading variant for the **NIFTY 500 / BSE 500** with **OpenAlgo** sandbox integration, a 2-stage vectorized screening funnel, and strict **Golden Rule** risk management (max 0.05% order cap, max 0.25% market exposure).
+>
+> 📖 **Read the complete setup & handoff guide:** **[README_INDIA_VARIANT.md](file:///C:/Users/CM_Rail/PycharmProjects/TradingAgents/README_INDIA_VARIANT.md)**
+
 <div align="center">
   <!-- Keep these links. Translations will automatically update with the README. -->
   <a href="https://www.readme-i18n.com/TauricResearch/TradingAgents?lang=de">Deutsch</a> | 
