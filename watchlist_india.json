@@ -1,0 +1,21 @@
+{
+  "market": "INDIA",
+  "default_exchange": "NSE",
+  "allocation_per_trade_inr": 50000.0,
+  "max_open_positions": 5,
+  "take_profit_pct": 8.0,
+  "stop_loss_pct": 3.0,
+  "tickers": [
+    "RELIANCE.NS",
+    "TCS.NS",
+    "INFY.NS",
+    "HDFCBANK.NS",
+    "ICICIBANK.NS",
+    "HINDUNILVR.NS",
+    "BHARTIARTL.NS",
+    "LT.NS",
+    "ITC.NS",
+    "KPGEL.BO",
+    "YASHHV.BO"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "cash": 351635.2,
+  "currency": "INR",
+  "positions": [
+    {
+      "ticker": "ITC.NS",
+      "quantity": 166.0,
+      "average_price": 301.0
+    },
+    {
+      "ticker": "TCS.NS",
+      "quantity": 20.0,
+      "average_price": 2460.0
+    },
+    {
+      "ticker": "LT.NS",
+      "quantity": 12.0,
+      "average_price": 4099.9
+    }
+  ]
+}
