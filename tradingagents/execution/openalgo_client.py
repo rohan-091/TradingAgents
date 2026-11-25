@@ -71,38 +71,77 @@ class OpenAlgoClient:
             logger.error(f"Error fetching funds from OpenAlgo: {e}")
             return {"availablecash": 20000000.0, "status": "error", "message": str(e)}
 
-    def get_positions(self) -> list[dict[str, Any]]:
-        """Fetch current open positions directly from OpenAlgo's positionbook."""
+    def get_holdings(self) -> list[dict[str, Any]]:
+        """Fetch settled Demat delivery holdings from OpenAlgo."""
         if not self.api_key:
             return []
-        url = f"{self.base_url}/api/v1/positionbook/"
+        url = f"{self.base_url}/api/v1/holdings/"
         try:
             resp = requests.post(url, json={"apikey": self.api_key}, timeout=self.timeout)
             if resp.status_code == 200:
-                data = resp.json()
-                positions = data.get("data", [])
-                # Only return positions with non-zero quantity
+                data = resp.json().get("data", {})
+                raw_holdings = data.get("holdings", []) if isinstance(data, dict) else (data if isinstance(data, list) else [])
                 active = []
-                for p in positions:
-                    qty = float(p.get("quantity", 0))
+                for h in raw_holdings:
+                    qty = float(h.get("quantity", 0))
                     if qty > 0:
-                        sym = p.get("symbol", "")
-                        exch = p.get("exchange", "NSE")
+                        sym = h.get("symbol", "")
+                        exch = h.get("exchange", "NSE")
                         suffix = ".BO" if exch == "BSE" else ".NS"
                         active.append({
                             "ticker": f"{sym}{suffix}" if not sym.endswith((".NS", ".BO")) else sym,
                             "symbol": sym,
                             "exchange": exch,
                             "quantity": qty,
-                            "average_price": float(p.get("average_price", 0.0)),
-                            "ltp": float(p.get("ltp", 0.0)),
-                            "pnl": float(p.get("pnl", 0.0)),
+                            "average_price": float(h.get("average_price", 0.0)),
+                            "ltp": float(h.get("ltp", 0.0)),
+                            "pnl": float(h.get("pnl", 0.0)),
                         })
                 return active
             return []
         except Exception as e:
-            logger.error(f"Error fetching positions from OpenAlgo: {e}")
+            logger.error(f"Error fetching holdings from OpenAlgo: {e}")
             return []
+
+    def get_positions(self, include_holdings: bool = True) -> list[dict[str, Any]]:
+        """Fetch current open positions and settled delivery holdings from OpenAlgo."""
+        if not self.api_key:
+            return []
+        url = f"{self.base_url}/api/v1/positionbook/"
+        active_map: dict[str, dict[str, Any]] = {}
+        try:
+            resp = requests.post(url, json={"apikey": self.api_key}, timeout=self.timeout)
+            if resp.status_code == 200:
+                data = resp.json()
+                positions = data.get("data", [])
+                for p in positions:
+                    qty = float(p.get("quantity", 0))
+                    if qty > 0:
+                        sym = p.get("symbol", "")
+                        exch = p.get("exchange", "NSE")
+                        suffix = ".BO" if exch == "BSE" else ".NS"
+                        ticker = f"{sym}{suffix}" if not sym.endswith((".NS", ".BO")) else sym
+                        active_map[ticker] = {
+                            "ticker": ticker,
+                            "symbol": sym,
+                            "exchange": exch,
+                            "quantity": qty,
+                            "average_price": float(p.get("average_price", 0.0)),
+                            "ltp": float(p.get("ltp", 0.0)),
+                            "pnl": float(p.get("pnl", 0.0)),
+                        }
+        except Exception as e:
+            logger.error(f"Error fetching positions from OpenAlgo: {e}")
+
+        # In Indian markets, CNC delivery positions move from positionbook into holdings end-of-day
+        if include_holdings:
+            holdings = self.get_holdings()
+            for h in holdings:
+                ticker = h["ticker"]
+                if ticker not in active_map:
+                    active_map[ticker] = h
+
+        return list(active_map.values())
 
     def place_order(
         self,
