@@ -15,9 +15,10 @@ import argparse
 import json
 import logging
 import sys
-from datetime import datetime
+from datetime import datetime, time as dtime
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 if str(ROOT_DIR) not in sys.path:
@@ -29,6 +30,31 @@ from tradingagents.execution.openalgo_client import OpenAlgoClient
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("HourlyMonitor")
+
+
+def is_bse_market_open(dt: datetime | None = None) -> tuple[bool, str]:
+    """Check if the current time is within Indian Equities (BSE/NSE) market hours.
+
+    Schedule: Monday through Friday, 09:15 AM to 03:30 PM IST (UTC+05:30).
+    """
+    ist_tz = ZoneInfo("Asia/Kolkata")
+    now_ist = (dt or datetime.now()).astimezone(ist_tz)
+
+    # 0 = Monday, 4 = Friday, 5 = Saturday, 6 = Sunday
+    if now_ist.weekday() >= 5:
+        return False, f"Weekend ({now_ist.strftime('%A')}). BSE/NSE market is closed."
+
+    market_open = dtime(9, 15)
+    market_close = dtime(15, 30)
+    current_time = now_ist.time()
+
+    if current_time < market_open:
+        return False, f"Pre-market ({now_ist.strftime('%H:%M:%S')} IST < 09:15:00 IST). BSE/NSE is closed."
+    if current_time > market_close:
+        return False, f"Post-market ({now_ist.strftime('%H:%M:%S')} IST > 15:30:00 IST). BSE/NSE is closed."
+
+    return True, f"Market is OPEN ({now_ist.strftime('%H:%M:%S')} IST)."
+
 
 
 def run_hourly_check(
@@ -238,8 +264,18 @@ def main():
     parser.add_argument("--no-auto-exit", action="store_true", help="Disable automatic exit order execution")
     parser.add_argument("--tp", type=float, default=8.0, help="Take-profit percentage")
     parser.add_argument("--sl", type=float, default=3.0, help="Stop-loss percentage")
+    parser.add_argument("--force", action="store_true", help="Run status check even outside BSE/NSE market hours")
 
     args = parser.parse_args()
+
+    # BSE/NSE Market Hours Guard
+    if not args.force:
+        is_open, status_msg = is_bse_market_open()
+        if not is_open:
+            print(f"⏸️ BSE/NSE Market Hours Guard: {status_msg}")
+            print("Status check skipped until next market session (Mon-Fri 09:15-15:30 IST). Pass --force to run anyway.")
+            return
+
     snapshot = run_hourly_check(
         portfolio_path=args.portfolio,
         results_dir=args.results_dir,
