@@ -152,3 +152,75 @@ class OpenAlgoClient:
         except Exception as e:
             logger.error(f"Error calling OpenAlgo placeorder: {e}")
             return {"status": "error", "message": str(e)}
+
+    def place_gtt_oco_order(
+        self,
+        symbol: str,
+        quantity: float,
+        stop_loss_trigger: float,
+        stop_loss_limit: float,
+        target_trigger: float,
+        target_limit: float,
+        exchange: str = "NSE",
+        product: str = "CNC",
+        action: str = "SELL",
+        strategy: str = "TradingAgents-GTT",
+    ) -> dict[str, Any]:
+        """Place an exchange-side GTT OCO (One-Cancels-Other) target & stop-loss trigger in OpenAlgo."""
+        if not self.api_key:
+            return {
+                "status": "simulated",
+                "trigger_id": f"SIM-GTT-{symbol}",
+                "message": "No OPENALGO_API_KEY configured; simulated locally.",
+            }
+
+        url = f"{self.base_url}/api/v1/placegttorder/"
+        payload = {
+            "apikey": self.api_key,
+            "strategy": strategy,
+            "trigger_type": "OCO",
+            "exchange": exchange,
+            "symbol": symbol,
+            "action": action.upper(),
+            "product": product,
+            "quantity": int(quantity),
+            "pricetype": "LIMIT",
+            "price": round(target_trigger, 2),
+            "triggerprice_sl": round(stop_loss_trigger, 2),
+            "stoploss": round(stop_loss_limit, 2),
+            "triggerprice_tg": round(target_trigger, 2),
+            "target": round(target_limit, 2),
+        }
+
+        try:
+            resp = requests.post(url, json=payload, timeout=self.timeout)
+            data = resp.json()
+            if resp.status_code in (200, 201) and data.get("status") == "success":
+                logger.info(f"OpenAlgo GTT OCO trigger placed successfully: {data.get('trigger_id')}")
+                return data
+            logger.warning(f"OpenAlgo GTT placement rejected: {resp.status_code} - {data}")
+            return {
+                "status": "error",
+                "code": resp.status_code,
+                "message": data.get("message", "GTT placement failed"),
+                "data": data,
+            }
+        except Exception as e:
+            logger.error(f"Error calling OpenAlgo placegttorder: {e}")
+            return {"status": "error", "message": str(e)}
+
+    def get_gtt_orderbook(self) -> list[dict[str, Any]]:
+        """Fetch all active GTT orders from OpenAlgo."""
+        if not self.api_key:
+            return []
+        url = f"{self.base_url}/api/v1/gttorderbook/"
+        try:
+            resp = requests.post(url, json={"apikey": self.api_key}, timeout=self.timeout)
+            if resp.status_code == 200:
+                data = resp.json()
+                return data.get("data", [])
+            return []
+        except Exception as e:
+            logger.error(f"Error fetching GTT orderbook from OpenAlgo: {e}")
+            return []
+

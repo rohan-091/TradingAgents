@@ -100,13 +100,14 @@ def generate_reports(
     if not new_buys:
         lines.append("- *No new positions opened today (cash limits or risk criteria).*")
     else:
-        lines.append("| Ticker | Exchange | Action | Qty | Order Type | Target Price | Stop Loss | OpenAlgo Status |")
-        lines.append("|---|---|---|---|---|---|---|---|")
+        lines.append("| Ticker | Exchange | Action | Qty | Order Type | Target Price | Stop Loss | GTT Trigger ID | OpenAlgo Status |")
+        lines.append("|---|---|---|---|---|---|---|---|---|")
         for b in new_buys:
             order_res = b.get("order_res", {})
             status_text = order_res.get("status", "dispatched")
+            gtt_id = b.get("gtt_trigger_id") or "N/A"
             lines.append(
-                f"| `{b['ticker']}` | {b['exchange']} | **{b['action']}** | {b['quantity']} | AMO CNC | ₹{b['target_price']:,.2f} | ₹{b['stop_loss']:,.2f} | `{status_text}` |"
+                f"| `{b['ticker']}` | {b['exchange']} | **{b['action']}** | {b['quantity']} | AMO CNC | ₹{b['target_price']:,.2f} | ₹{b['stop_loss']:,.2f} | `{gtt_id}` | `{status_text}` |"
             )
 
     cash = portfolio_state.get("cash", 0.0)
@@ -300,6 +301,22 @@ def run_pipeline(
                 strategy="TradingAgents-Daily",
             )
 
+            # Pre-feed Exchange-Side GTT OCO (Take-Profit & Stop-Loss) order directly to OpenAlgo
+            gtt_res = openalgo_client.place_gtt_oco_order(
+                symbol=sym,
+                quantity=qty,
+                stop_loss_trigger=stop_loss,
+                stop_loss_limit=round(stop_loss * 0.998, 2),
+                target_trigger=target_price,
+                target_limit=round(target_price * 1.002, 2),
+                exchange=exch,
+                product="CNC",
+                strategy="TradingAgents-Daily",
+            )
+            gtt_id = gtt_res.get("trigger_id") if isinstance(gtt_res, dict) else ""
+            if gtt_id:
+                logger.info(f"Attached exchange-side GTT OCO trigger {gtt_id} for {candidate.ticker} (+{take_profit_pct}% TP / -{stop_loss_pct}% SL)")
+
             # Update local ledger and exposure accounting
             cash -= trade_cost
             current_exposure += trade_cost
@@ -321,6 +338,7 @@ def run_pipeline(
                 "price": candidate.current_price,
                 "target_price": target_price,
                 "stop_loss": stop_loss,
+                "gtt_trigger_id": gtt_id,
                 "order_res": order_res,
                 "allocation_inr": round(trade_cost, 2),
                 "capital_pct": round((trade_cost / total_capital) * 100.0, 3),

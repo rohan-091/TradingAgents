@@ -49,6 +49,7 @@ def run_hourly_check(
     # Step 1: Query Funds & Open Positions
     live_funds: dict[str, Any] = {}
     live_positions: list[dict[str, Any]] = []
+    active_gtt_map: dict[str, str] = {}
 
     if openalgo_online:
         live_funds = client.get_funds()
@@ -56,6 +57,13 @@ def run_hourly_check(
         available_cash = float(live_funds.get("availablecash", 0.0))
         utilised_debits = float(live_funds.get("utiliseddebits", 0.0))
         total_pnl = float(live_funds.get("totalpnl", 0.0))
+
+        # Query active exchange GTT triggers
+        gtt_list = client.get_gtt_orderbook()
+        for g in gtt_list:
+            if g.get("status") == "active":
+                sym = g.get("symbol", "")
+                active_gtt_map[sym.upper()] = g.get("trigger_id", "")
     else:
         # Fallback to local portfolio ledger if OpenAlgo gateway is offline
         p_path = Path(portfolio_path)
@@ -105,6 +113,9 @@ def run_hourly_check(
         dist_to_tp = ((tp_price - ltp) / ltp) * 100.0
         dist_to_sl = ((ltp - sl_price) / ltp) * 100.0
 
+        base_sym = ticker.replace(".NS", "").replace(".BO", "").upper()
+        gtt_id = active_gtt_map.get(base_sym, "None")
+
         status = "NORMAL"
         if ret_pct >= take_profit_pct:
             status = "TAKE_PROFIT_TRIGGERED"
@@ -125,6 +136,7 @@ def run_hourly_check(
             "stop_loss": sl_price,
             "distance_to_tp_pct": round(dist_to_tp, 2),
             "distance_to_sl_pct": round(dist_to_sl, 2),
+            "gtt_trigger_id": gtt_id,
             "status": status,
         })
 
@@ -192,15 +204,16 @@ def format_markdown_summary(snapshot: dict[str, Any]) -> str:
     if not positions:
         lines.append("*No open positions currently held.*")
     else:
-        lines.append("| Ticker | Qty | Avg Buy | LTP | Value | P&L % | Unrealized P&L | Target (+8%) | Stop (-3%) | Status |")
-        lines.append("|---|---|---|---|---|---|---|---|---|---|")
+        lines.append("| Ticker | Qty | Avg Buy | LTP | Value | P&L % | Unrealized P&L | Target (+8%) | Stop (-3%) | GTT Trigger | Status |")
+        lines.append("|---|---|---|---|---|---|---|---|---|---|---|")
         for p in positions:
             pnl_sign = "+" if p["unrealized_pnl"] >= 0 else ""
             ret_sign = "+" if p["return_pct"] >= 0 else ""
+            gtt_badge = f"`{p.get('gtt_trigger_id', 'None')}`" if p.get('gtt_trigger_id') and p.get('gtt_trigger_id') != 'None' else "*None*"
             lines.append(
                 f"| `{p['ticker']}` | {int(p['quantity'])} | ₹{p['average_price']:,.2f} | ₹{p['ltp']:,.2f} | "
                 f"₹{p['current_value']:,.2f} | {ret_sign}{p['return_pct']:.2f}% | ₹{pnl_sign}{p['unrealized_pnl']:,.2f} | "
-                f"₹{p['target_price']:,.2f} | ₹{p['stop_loss']:,.2f} | `{p['status']}` |"
+                f"₹{p['target_price']:,.2f} | ₹{p['stop_loss']:,.2f} | {gtt_badge} | `{p['status']}` |"
             )
 
     if snapshot.get("exit_alerts"):

@@ -119,3 +119,20 @@ def test_golden_rule_exposure_and_order_limits():
     qty = int(order_budget / candidate_price)
     assert qty == 0  # Blocked from placing new order
 
+
+def test_openalgo_gtt_oco_placement():
+    """Verify OpenAlgoClient GTT OCO order construction."""
+    client = OpenAlgoClient(base_url="http://127.0.0.1:5000", api_key="")
+    # Test simulated response without API key
+    res = client.place_gtt_oco_order(
+        symbol="TCS",
+        quantity=3,
+        stop_loss_trigger=2439.55,
+        stop_loss_limit=2439.00,
+        target_trigger=2716.20,
+        target_limit=2717.00,
+    )
+    assert res["status"] == "simulated"
+    assert "trigger_id" in res
+
+
