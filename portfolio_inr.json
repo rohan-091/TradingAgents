@@ -1,21 +1,21 @@
 {
-  "cash": 19971329.25,
+  "cash": 19944867.33,
   "currency": "INR",
   "positions": [
     {
-      "ticker": "VIJAYA.NS",
-      "quantity": 6.0,
-      "average_price": 1572.6
-    },
-    {
-      "ticker": "IEX.NS",
-      "quantity": 88.0,
-      "average_price": 113.15
-    },
-    {
       "ticker": "CYIENT.NS",
       "quantity": 8.0,
-      "average_price": 1155.5
+      "average_price": 1162.5
+    },
+    {
+      "ticker": "TCS.NS",
+      "quantity": 3.0,
+      "average_price": 2515.0
+    },
+    {
+      "ticker": "HAL.NS",
+      "quantity": 2.0,
+      "average_price": 4930.0
     }
   ]
 }
